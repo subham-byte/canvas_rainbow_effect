@@ -5,19 +5,6 @@ canvas.height = window.innerHeight;
 const particleArray = [];
 let hue = 0;
 
-// drawing of rectangle
-/*
-  window.addEventListener("resize", function () {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  ctx.fillStyle = "white";
-  ctx.fillRect(10, 10, 50, 50);
-})
-ctx.fillStyle = "white";
-ctx.fillRect(10, 10, 50, 50);
-*/
-
-// drawing of circle and Making it interactive
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -32,7 +19,6 @@ const mouse = {
 canvas.addEventListener("click", function (event) {
   mouse.x = event.x;
   mouse.y = event.y;
-//   drawCircle();
 for(let i=0;i<10;i++){
     particleArray.push(new particle());
     }
@@ -44,19 +30,7 @@ canvas.addEventListener("mousemove",function(event){
     for(let i=0;i<10;i++){
         particleArray.push(new particle());
         }
-    // drawCircle();
 });
-
-// function drawCircle() {
-//   ctx.fillStyle = "red";
-//   // ctx.strokeStyle = "blue";
-//   // ctx.lineWidth = 5;
-//   ctx.beginPath();
-//   ctx.arc(mouse.x, mouse.y, 50, 0, Math.PI * 2);
-//   ctx.fill();
-//   // ctx.stroke();
-// }
-//to animate we use
 
 class particle{
     constructor(){
@@ -76,22 +50,11 @@ class particle{
     }
     draw(){
         ctx.fillStyle = this.color;
-        // ctx.strokeStyle = "#FF6363";
-        // ctx.shadowBlur = 200;
-        // ctx.shadowColor = "black";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
-        // ctx.stroke();
     }
 }
-
-// function init(){
-//     for(let i=0;i<100;i++){
-//         particleArray.push(new particle());
-//     }
-// }
-// init();
 
 function handleParticle(){
     for(let i = 0; i<particleArray.length; i++){
@@ -104,8 +67,6 @@ function handleParticle(){
 }
 
 function animate(){
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // drawCircle();
     ctx.fillStyle = "rgba(0,0,0,0.1)";
     ctx.fillRect(0,0,canvas.width, canvas.height);
     handleParticle();
